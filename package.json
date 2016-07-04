@@ -18,5 +18,9 @@
   },
   "devDependencies": {
     "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "events": "github:sasaplus1-prototype/events.js",
+    "scroll-top": "github:sasaplus1-prototype/scroll-top.js"
   }
 }
