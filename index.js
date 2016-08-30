@@ -1,6 +1,6 @@
 'use strict';
 
-var events = require('events'),
+var eventListener = require('event-listener'),
     scrollTop = require('scroll-top');
 
 var settings = [];
@@ -21,11 +21,11 @@ function scroll(event) {
 }
 
 function finalize() {
-  events.off(window, 'scroll', scroll);
+  eventListener.off(window, 'scroll', scroll);
 }
 
 function initialize() {
-  events.on(window, 'scroll', scroll);
+  eventListener.on(window, 'scroll', scroll);
 }
 
 function off(setting) {
