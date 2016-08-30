@@ -61,7 +61,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var events = __webpack_require__(1),
+	var eventListener = __webpack_require__(1),
 	    scrollTop = __webpack_require__(2);
 
 	var settings = [];
@@ -82,11 +82,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function finalize() {
-	  events.off(window, 'scroll', scroll);
+	  eventListener.off(window, 'scroll', scroll);
 	}
 
 	function initialize() {
-	  events.on(window, 'scroll', scroll);
+	  eventListener.on(window, 'scroll', scroll);
 	}
 
 	function off(setting) {
@@ -151,7 +151,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var handler = function() {
 	    off(element, eventName, handler, capture);
 
-	    return callback.apply(this, arguments);
+	    switch (arguments.length) {
+	      case 0:
+	        return callback.call(this);
+	      case 1:
+	        return callback.call(this, arguments[0]);
+	      case 2:
+	        return callback.call(this, arguments[0], arguments[1]);
+	      case 3:
+	        return callback.call(this, arguments[0], arguments[1], arguments[2]);
+	      default:
+	        return callback.apply(this, arguments);
+	    }
 	  };
 
 	  return on(element, eventName, handler, capture);

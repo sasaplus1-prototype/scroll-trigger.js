@@ -1,6 +1,6 @@
 {
   "name": "scroll-trigger",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "sasa+1 <sasaplus1@gmail.com>",
   "description": "trigger function when scrolling",
   "main": "./index.js",
@@ -20,7 +20,7 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
-    "events": "github:sasaplus1-prototype/events.js",
+    "event-listener": "github:sasaplus1-prototype/event-listener.js",
     "scroll-top": "github:sasaplus1-prototype/scroll-top.js"
   }
 }
