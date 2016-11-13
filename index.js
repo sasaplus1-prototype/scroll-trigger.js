@@ -12,7 +12,7 @@ function scroll(event) {
   for (i = 0, len = settings.length; i < len; ++i) {
     setting = settings[i];
 
-    if (setting.reverse) {
+    if (setting.invert) {
       (setting.top >= top) && setting.callback(event);
     } else {
       (setting.top < top) && setting.callback(event);
@@ -38,7 +38,7 @@ function off(setting) {
   }
 }
 
-function on(top, callback, reverse) {
+function on(top, callback, invert) {
   var setting;
 
   if (top !== null && typeof top === 'object') {
@@ -47,7 +47,7 @@ function on(top, callback, reverse) {
     setting = {
       top: top,
       callback: callback,
-      reverse: reverse
+      invert: invert
     };
   }
 
