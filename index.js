@@ -12,7 +12,7 @@ function scroll(event) {
   for (i = 0, len = settings.length; i < len; ++i) {
     setting = settings[i];
 
-    if (setting.invert) {
+    if (setting && setting.invert) {
       (setting.top >= top) && setting.callback(event);
     } else {
       (setting.top < top) && setting.callback(event);
